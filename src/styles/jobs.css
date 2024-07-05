@@ -1,0 +1,166 @@
+.content {
+  width: 75%;
+}
+
+.content--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header--title {
+  color: #526d82;
+}
+
+/* Additional styles for Add Job button */
+.add-job {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  color: #dde6ed;
+  background: #526d82;
+}
+
+.add-job:hover {
+  background: #27374d;
+  color: #dde6ed !important;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.max-w-xs {
+  max-width: 20rem; /* Adjust as needed */
+}
+
+.break-words {
+  word-break: break-word;
+}
+
+/* Styles for the job form */
+.job-form {
+  width: 50%; /* Adjusted form width */
+  margin: 50px auto; /* Centered the form vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.save-button {
+  padding: 12px 24px;
+  background-color: #27374d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #27374d;
+}
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.loading-text {
+  font-size: 24px;
+  color: #333; /* Adjust the color as needed */
+}
+.sucess-container,
+.success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sucess-text,
+.success-text {
+  font-size: 24px;
+  color: #22c55e;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #526d82;
+  color: #fff;
+}
+
+.pagination button.bg-blue-500 {
+  background-color: #27374d;
+  color: #fff;
+  border-color: #27374d;
+}
+
+.pagination button.bg-gray-200 {
+  background-color: #e5e7eb;
+  color: #333;
+  border-color: #e5e7eb;
+}
+
+
+

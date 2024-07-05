@@ -1,0 +1,318 @@
+/* Common styles */
+.content {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+
+}
+
+.content--header, .form-header {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.header--title, .edit-employee-title {
+  color: #526d82;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* EditEmployeePage specific styles */
+.edit-employee-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  align-self: flex-start;
+}
+
+.edit-employee-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-employee-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.edit-employee-form input,
+.edit-employee-form select,
+.edit-employee-form button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.edit-employee-form input[type="file"] {
+  padding: 3px;
+}
+
+.edit-employee-form button {
+  background-color: #526d82;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-employee-form button:hover {
+  background-color: #27374d;
+}
+
+/* FormComponentEmployees specific styles */
+.employee-form-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  align-self: flex-start;
+}
+
+.employee-form .form-group {
+  margin-bottom: 15px;
+}
+
+.employee-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.employee-form input,
+.employee-form select,
+.employee-form button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.employee-form input[type="file"] {
+  padding: 3px;
+}
+
+.employee-form button {
+  background-color: #526d82;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.employee-form button:hover {
+  background-color: #27374d;
+}
+
+/* Other existing styles */
+.add-employee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  color: #dde6ed;
+  background: #526d82;
+}
+
+.add-employee:hover {
+  background: #27374d;
+  color: #dde6ed !important;
+}
+
+.table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.max-w-xs {
+  max-width: 20rem; /* Adjust as needed */
+}
+
+.break-words {
+  word-break: break-word;
+}
+.table-wrapper {
+  width: 100%;
+  max-height: calc(100vh - 150px); /* Adjust according to your header/footer sizes */
+  overflow: auto; /* Allow the table itself to scroll if needed */
+}
+
+.employee-table {
+  width: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 20px;
+}
+
+.employee-table th,
+.employee-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.employee-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.action-button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-text {
+  font-size: 24px;
+  color: #333;
+}
+form {
+  background: #fff;
+  max-width: 600px;
+  margin-left: 20px; /* Align to the left */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+}
+
+img {
+  display: block;
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #526d82;
+  color: #fff;
+}
+
+.pagination button.bg-blue-500 {
+  background-color: #27374d;
+  color: #fff;
+  border-color: #27374d;
+}
+
+.pagination button.bg-gray-200 {
+  background-color: #e5e7eb;
+  color: #333;
+  border-color: #e5e7eb;
+}
+
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #526d82;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.page-link:hover,
+.page-link.active {
+  background-color: #526d82;
+  color: #fff;
+}

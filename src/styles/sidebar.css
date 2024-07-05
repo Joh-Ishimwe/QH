@@ -1,0 +1,70 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap:2.3rem;
+    height:100%;
+    width: 250px;
+    border-radius: 20px;
+    background-color: #dde6ed;
+    padding: 20px ;
+  margin: 10px; 
+  margin-bottom: 10px;
+    
+}
+.logo{
+    text-align:center;
+    padding: 20px;
+    color: #27374d;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+.logo-icon{
+    font-size: 1.4rem;
+}
+.menu--list{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.menu--list .item{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    color: #27374d;
+}
+.menu--list .item:hover, .active{
+    background: #27374d;
+    color: #dde6ed !important;
+}
+.menu h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ec4899;
+  }
+
+  .menu--list .item.logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    color: #dde6ed;
+    background: #a1a3a5;
+  }
+  .menu--list .item.logout:hover{
+    background: #27374d;
+    cursor: pointer;
+  }
