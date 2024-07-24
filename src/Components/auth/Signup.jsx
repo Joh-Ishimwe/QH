@@ -35,7 +35,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://quickhelp-2.onrender.com/api/v1/auth/register/",
+        "https://qh-backend.onrender.com/api/v1/auth/register",
         {
           userName: userName,
           email: email,

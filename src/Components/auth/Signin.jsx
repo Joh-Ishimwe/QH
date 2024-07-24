@@ -36,7 +36,7 @@ const Signin = () => {
     setError('');
 
     try {
-      const response = await axios.post('https://quickhelp-2.onrender.com/api/v1/auth/login', {
+      const response = await axios.post('https://qh-backend.onrender.com/api/v1/auth/login', {
         email: email,
         password: password
       }, {
@@ -60,7 +60,7 @@ const Signin = () => {
       } else {
 
         login(user);
-        navigate('/');
+        navigate('/profile');
       }
 
     } catch (error) {

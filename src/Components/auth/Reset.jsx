@@ -11,7 +11,7 @@ const Reset = () => {
   const handleReset = (e) => {
     e.preventDefault();
     try{
-      axios.post('https://quickhelp-2.onrender.com/api/v1/auth/request',{
+      axios.post('https://qh-backend.onrender.com/api/v1/auth/reset',{
         email: email,
         password:password
       },{

@@ -24,7 +24,7 @@ const Confirmation = () => {
 
     axios
       .post(
-        "https://quickhelp-2.onrender.com/api/v1/auth/verify",
+        "https://qh-backend.onrender.com/api/v1/auth/verify",
         {
           email: email,
           otp: otp,
