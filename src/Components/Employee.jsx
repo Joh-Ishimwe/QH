@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Employee = () => {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ const Employee = () => {
 
   const handleFetch = async () => {
     try {
-      const response = await axios.get("https://quickhelp-2.onrender.com/api/v1/employee/get", {
+      const response = await axios.get("https://qh-backend.onrender.com/api/v1/employee/get", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -90,8 +90,8 @@ const Employee = () => {
             Show Fewer
           </h4>
         )}
-        <button className="bg-[#114a6e] rounded flex justify-center text-white p-2 mt-5">
-          <Link to="/register">Register as employee</Link>
+        <button onClick={() => navigate(`/register`)} className="bg-[#114a6e] rounded flex justify-center text-white p-2 mt-5">
+          Register as employee
         </button>
       </div>
     </div>

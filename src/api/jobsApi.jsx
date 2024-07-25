@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://quickhelp-2.onrender.com/api/v1/jobs'; // Adjust URL if necessary
+const API_URL = 'https://qh-backend.onrender.com/api/v1/jobs'; // Adjust URL if necessary
 
 // Fetch jobs
 export const fetchJobs = async () => {
@@ -15,7 +15,7 @@ export const fetchJobs = async () => {
 // Fetch a single job by ID
 export const fetchJob = async (id) => {
   try {
-    const res = await axios.get(`${"https://quickhelp-2.onrender.com/api/v1/Jobs"}/getByid/${id}`);
+    const res = await axios.get(`${"https://qh-backend.onrender.com/api/v1/jobs"}/getByid/${id}`);
     return res.data;
   } catch (error) {
     console.error(`Error fetching job with id ${id}:`, error.response ? error.response.data : error.message);

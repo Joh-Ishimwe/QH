@@ -19,7 +19,7 @@ const About = () => {
   const handleFetch = async () => {
     await axios({
       method: "get",
-      url: "https://quickhelp-2.onrender.com/api/v1/jobs/getAll",
+      url: "https://qh-backend.onrender.com/api/v1/jobs/getAll",
       headers: {
         "Content-Type": "application/json",
       },

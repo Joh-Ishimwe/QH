@@ -1,4 +1,3 @@
-// Components/auth/Signin.js
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +22,8 @@ const Signin = () => {
       return;
     }
 
-    if (!trimmedEmail.includes('@gmail.com') && !trimmedEmail.includes('@net.com')) {
-      setError('Email must be a valid Gmail or Net address.');
+    if (!trimmedEmail.includes('@gmail.com') && !trimmedEmail.includes('@alustudent.com')) {
+      setError('Email must be a valid Gmail or alustudent address.');
       return;
     }
 
@@ -37,44 +36,39 @@ const Signin = () => {
 
     try {
       const response = await axios.post('https://qh-backend.onrender.com/api/v1/auth/login', {
-        email: email,
-        password: password
+        email: trimmedEmail,
+        password: trimmedPassword
       }, {
         headers: {
           "Content-Type": 'application/json',
         },
       });
 
-      console.log("API Response:", response.data); 
-
       const { user, token } = response.data;
-      console.log("Tokendsxfcgvhbjnkmljhgfvtdrszdrxfctgyuhokpl:", token); 
-    
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(response.data.Role))
+      console.log("Token:", token);
 
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user.Role));
 
       if (user.Role === 'Admin') {
         login(user);
         navigate('/dashboard');
       } else {
-
         login(user);
-        navigate('/profile');
+        navigate('/');
       }
 
     } catch (error) {
       setError('Invalid credentials');
-      console.error(error);
+      console.error('API Error:', error);
     }
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    setError(""); 
+    setError("");
   };
 
-  
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
     setError("");
@@ -99,7 +93,7 @@ const Signin = () => {
               type="email"
               className="bg-white w-full rounded-lg border-gray-200 p-4 text-black-400 pe-12 text-sm shadow-sm"
               placeholder="Email"
-              value={isAdmin ? "admin@gmail.com" : email} 
+              value={isAdmin ? "admin@gmail.com" : email}
               onChange={handleEmailChange}
             />
           </div>
@@ -109,7 +103,7 @@ const Signin = () => {
               type="password"
               className="bg-white w-full rounded-lg border-gray-200 p-4 pe-12 text-sm text-blue-400 shadow-sm"
               placeholder="Password"
-              value={isAdmin ? "admin123" : password} 
+              value={isAdmin ? "admin123" : password}
               onChange={handlePasswordChange}
             />
           </div>
@@ -118,10 +112,7 @@ const Signin = () => {
 
           <button
             type="submit"
-            className={`block w-full rounded-lg bg-blue-300 px-5 py-3 text-sm font-medium text-white mt-2 ${
-              error ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-            disabled={error !== ""}
+            className="block w-full rounded-lg bg-blue-300 px-5 py-3 text-sm font-medium text-white mt-2"
           >
             Sign in
           </button>

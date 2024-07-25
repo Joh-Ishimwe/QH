@@ -4,6 +4,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import EmployeesPage from './Components/EmployeesPage';
 import JobsPage from './Components/JobsPage';
 import DashBoardPage from './Components/DashBoardPage';
+import Regform from './Components/Regform';
 import BookingsPage from './Components/BookingsPage';
 import AuthPages from './Components/AuthPages';
 import AddEditJobPage from './Components/AddEditJobPage';
@@ -38,8 +39,9 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/setnew" element={<Reset />} />
             <Route path="/confirm" element={<Confirmation />} />
-            <Route path="/book" element={<Booking />} />
+            <Route path="/book/:id" element={<Booking />} />
             <Route path='/profile' element={<Profile/>} />
+            <Route path="/signin/:register" element={<Regform />} />
           </Route>
 
           <Route path="/" element={<AuthPages />}>

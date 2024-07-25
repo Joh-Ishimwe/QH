@@ -38,7 +38,7 @@ const Confirmation = () => {
       .then((response) => {
         console.log(response.data);
         setTimeout(() => {
-          navigate("/");
+          navigate("/signin");
         }, 3000);
       })
       .catch((error) => {

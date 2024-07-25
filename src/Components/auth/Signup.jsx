@@ -23,7 +23,7 @@ const Signup = () => {
       return;
     }
 
-    if (!email.includes("@gmail.com")) {
+    if (!email.includes("")) {
       setError("Email must be a valid Gmail address.");
       return;
     }
