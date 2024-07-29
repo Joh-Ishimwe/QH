@@ -72,7 +72,7 @@ const Navbar = () => {
 
   const handleSignIn = async () => {
     try {
-      const response = await axios.get("https://qh-backend.onrender.com/api/v1/employee/getById/:id", {
+      const response = await axios.get(`https://qh-backend.onrender.com/api/v1/employee/getById/${JSON.parse(localStorage.getItem("user"))._id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -86,7 +86,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    handleSignIn();
+     handleSignIn();
+    
+    const Token = localStorage.getItem('token');
+    console.log("logedIn")
+    if (Token) {
+      setIsSignedIn(true);
+      setUser(JSON.parse(localStorage.getItem('user')));
+    }
   }, []);
 
   return (
@@ -136,7 +143,7 @@ const Navbar = () => {
           {isSignedIn && user && (
             <li>
               <img
-                src={user.profilePicture.url}
+                // src={user.profilePicture.url}
                 alt="User Profile"
                 className="w-8 h-8 rounded-full"
               />
