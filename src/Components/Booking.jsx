@@ -25,7 +25,7 @@ const Booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://quickhelp-2.onrender.com/api/v1/Booking/', {
+      const response = await axios.post('https://qh-backend.onrender.com/api/v1/Booking/bookings', {
         ...formData,
         id: data.id
       });

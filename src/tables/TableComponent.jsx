@@ -13,7 +13,7 @@ const TableComponent = ({ handleDelete, handleEdit }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://quickhelp-2.onrender.com/api/v1/jobs/getAll");
+        const response = await axios.get("https://qh-backend.onrender.com/api/v1/jobs/getAll");
         console.log(response.data);
         if (response.data && response.data.jober) {
           setJobs(response.data.jober);

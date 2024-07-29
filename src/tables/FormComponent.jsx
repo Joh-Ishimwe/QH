@@ -22,7 +22,7 @@ const FormComponent = ({ handleSave }) => {
       setIsLoading(true); // Set loading to true when submitting form
       const response = await axios({
         method: "POST",
-        url: "https://quickhelp-2.onrender.com/api/v1/jobs/createJob",
+        url: "https://qh-backend.onrender.com/api/v1/jobs/createJob",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",

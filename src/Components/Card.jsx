@@ -7,9 +7,9 @@ import axios from 'axios';
 import '../styles/content.css';
 
 export const apiUrls = {
-  jobs: 'https://quickhelp-2.onrender.com/api/v1/jobs/getAll',
-  workers: 'https://quickhelp-2.onrender.com/api/v1/employee/get',
-  bookings: 'https://quickhelp-2.onrender.com/api/v1/Booking/getAllBookings', // Example URL for contact
+  jobs: 'https://qh-backend.onrender.com/api/v1/jobs/getAll',
+  workers: 'https://qh-backend.onrender.com/api/v1/employee/get',
+  bookings: 'https://qh-backend.onrender.com/api/v1/Booking/getAllBookings', // Example URL for contact
 };
 
 

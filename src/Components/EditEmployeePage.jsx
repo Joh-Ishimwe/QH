@@ -21,7 +21,7 @@ const EditEmployeePage = () => {
 
   const handleFetchById = async () => {
     try {
-      const response = await axios.get(`https://quickhelp-2.onrender.com/api/v1/employee/getById/${employeeId}`);
+      const response = await axios.get(`https://qh-backend.onrender.com/api/v1/employee/getById/${employeeId}`);
       const employeeData = response.data.data;
       setData(employeeData);
       setFirstName(employeeData.firstName);
@@ -58,7 +58,7 @@ const EditEmployeePage = () => {
       dateOfBirth,
     };
     try {
-      await axios.put(`https://quickhelp-2.onrender.com/api/v1/employee/update/${employeeId}`, form);
+      await axios.put(`https://qh-backend.onrender.com/api/v1/employee/update/${employeeId}`, form);
       navigate('/employees'); // Redirect to employee list or details page after successful update
     } catch (error) {
       console.error('Error updating employee:', error);

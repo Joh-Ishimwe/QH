@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://quickhelp-2.onrender.com/api/v1/employee';
+const API_URL = 'https://qh-backend.onrender.com/api/v1/employee';
 
 // Fetch employees
 export const fetchEmployees = async () => {

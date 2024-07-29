@@ -21,7 +21,7 @@ const Profile = () => {
   const handleFetchById = async () => {
     try {
       const response = await axios.get(
-        `https://quickhelp-2.onrender.com/api/v1/employee/getById/${employeeId}`,
+        `https://qh-backend.onrender.com/api/v1/employee/getById/${employeeId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -69,7 +69,7 @@ const Profile = () => {
     };
     try {
       await axios.put(
-        `https://quickhelp-2.onrender.com/api/v1/employee/update/${employeeId}`,
+        `https://qh-backend.onrender.com/api/v1/employee/update/${employeeId}`,
         form,
         {
           headers: {

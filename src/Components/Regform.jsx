@@ -21,7 +21,7 @@ const Regform = () => {
 
     try {
       const response = await axios.post(
-        "https://quickhelp-2.onrender.com/api/v1/employee/add",
+        "https://qh-backend.onrender.com/api/v1/employee/add",
         {
           firstName: firstName,
           lastName: lastName,

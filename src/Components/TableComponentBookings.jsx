@@ -12,7 +12,7 @@ const TableComponentBookings = ({ handleDelete }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://quickhelp-2.onrender.com/api/v1/Booking/getAllBookings");
+        const response = await axios.get("https://qh-backend.onrender.com/api/v1/Booking/getAllBookings");
         console.log(response.data);
         if (response.data && response.data.book) {
           setBookings(response.data.book);

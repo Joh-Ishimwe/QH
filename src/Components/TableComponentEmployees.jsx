@@ -13,7 +13,7 @@ const TableComponentEmployees = ({ handleEdit, handleDelete }) => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("https://quickhelp-2.onrender.com/api/v1/employee/get");
+        const response = await axios.get("https://qh-backend.onrender.com/api/v1/employee/get");
         setEmployees(response.data.data);
       } catch (error) {
         console.error(error);

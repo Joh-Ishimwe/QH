@@ -41,7 +41,8 @@ const App = () => {
             <Route path="/confirm" element={<Confirmation />} />
             <Route path="/book/:id" element={<Booking />} />
             <Route path='/profile' element={<Profile/>} />
-            <Route path="/signin/:register" element={<Regform />} />
+            <Route path='/profile/updateProfile/:id' element={<Profile/>} />
+            <Route path="/register" element={<Regform />} />
           </Route>
 
           <Route path="/" element={<AuthPages />}>

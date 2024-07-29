@@ -72,7 +72,7 @@ const Navbar = () => {
 
   const handleSignIn = async () => {
     try {
-      const response = await axios.get("https://qh-backend.onrender.com/api/v1/employee/getById", {
+      const response = await axios.get("https://qh-backend.onrender.com/api/v1/employee/getById/:id", {
         headers: {
           "Content-Type": "application/json",
         },

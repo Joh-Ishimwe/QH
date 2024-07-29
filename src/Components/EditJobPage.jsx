@@ -15,7 +15,7 @@ const EditJobPage = () => {
 
   const handleFetchById = async () => {
     try {
-      const response = await axios.get(`https://quickhelp-2.onrender.com/api/v1/Jobs/getById/${jobId}`);
+      const response = await axios.get(`https://qh-backend.onrender.com/api/v1/Jobs/getById/${jobId}`);
       const jobData = response.data.data;
       setData(jobData);
       setJobName(jobData.JobName);
