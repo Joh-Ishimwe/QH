@@ -55,37 +55,37 @@ Before you begin, ensure you have met the following requirements:
 For the frontend:
 
 ```bash
-Copy code
 cd QH
 npm install
 ```
 **For the backend:**
 
-bash
-Copy code
+```bash
 cd QH_Backend
 npm install
-Set up environment variables:
+```
+3. **Set up environment variables:**
 
 Create a .env file in the QH_Backend directory and add the following:
 
 env
-Copy code
+```bash
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-Running the Project
+```
+4. **Running the Project**
 Start the back-end server:
 
-bash
-Copy code
+```bash
 cd QH_Backend
 npm run dev
+```
 Start the front-end development server:
 
-bash
-Copy code
+```bash
 cd QH
 npm run dev
+```
 Open your browser and navigate to http://localhost:5173
 
