@@ -50,15 +50,16 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    git clone https://github.com/yourusername/quickhelp.git
    cd quickhelp
-Install dependencies
+2. **Install dependencies:**
 
 For the frontend:
 
-bash
+```bash
 Copy code
 cd QH
 npm install
-For the backend:
+```
+**For the backend:**
 
 bash
 Copy code
