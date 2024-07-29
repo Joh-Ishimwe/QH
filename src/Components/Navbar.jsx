@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { CiMenuFries } from "react-icons/ci";
+import { Navigate } from "react-router-dom";
 
 const Menu = ({ isOpen, toggleMenu, isSignedIn, user, handleSignOut }) => {
   return (
@@ -31,17 +32,21 @@ const Menu = ({ isOpen, toggleMenu, isSignedIn, user, handleSignOut }) => {
       </li>
       <li>
         {isSignedIn ? (
+          <>
           <button
-            className="bg-white rounded-full hover:bg-[#893470] block py-2 px-4 hover:text-white text-[#bf5084]"
+            className="bg-white cursor-pointer   rounded-full hover:bg-[#893470] block py-2 px-4 hover:text-white text-[#bf5084]"
             onClick={() => {
               handleSignOut();
               toggleMenu();
             }}
           >
-            <a href="/" className="flex items-center py-2 px-4">
-              Sign out
-            </a>
+            sign out 
           </button>
+
+            <a href="/register" className="flex items-center py-2 px-4 ">
+              profile 
+            </a> 
+          </>
         ) : (
           <a
             href="/signin"
@@ -61,40 +66,45 @@ const Navbar = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+
+    const checkAuthStatus = ()=>{
+      const token = localStorage.getItem("token");
+      const user = localStorage.getItem("user");
+      if (token) {
+        setIsSignedIn(true);
+        setUser(JSON.parse(localStorage.getItem('user')));
+      } else{
+        setIsSignedIn(false);
+        setUser(null); 
+      }
+
+    };
+    checkAuthStatus();
+    // add event listener to check auth status and when  storage changes
+
+    window.addEventListener('storage', checkAuthStatus); 
+
+    // clean up  the event listener 
+
+    return () =>{
+      window.removeEventListener('storage', checkAuthStatus);
+    }
+
+    console.log("logedIn")
+  }, []);  
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleSignOut = () => {
     setIsSignedIn(false);
+    localStorage.removeItem("token");
     setUser(null);
   };
 
-  const handleSignIn = async () => {
-    try {
-      const response = await axios.get(`https://qh-backend.onrender.com/api/v1/employee/getById/${JSON.parse(localStorage.getItem("user"))._id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const userData = response.data.data;
-      setIsSignedIn(true);
-      setUser(userData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  useEffect(() => {
-     handleSignIn();
-    
-    const Token = localStorage.getItem('token');
-    console.log("logedIn")
-    if (Token) {
-      setIsSignedIn(true);
-      setUser(JSON.parse(localStorage.getItem('user')));
-    }
-  }, []);
 
   return (
     <div>
@@ -125,12 +135,15 @@ const Navbar = () => {
           </li>
           <li>
             {isSignedIn ? (
+              <div className=" flex ga-2 item-center "  >
               <button
                 className="flex items-center py-2 hover:text-2xl hover:text-[#afa3d5] px-4"
                 onClick={handleSignOut}
               >
                 Sign out
               </button>
+             
+              </div >
             ) : (
               <a
                 href="/signin"
@@ -142,11 +155,11 @@ const Navbar = () => {
           </li>
           {isSignedIn && user && (
             <li>
-              <img
+            <a href="/register">   <img
                 // src={user.profilePicture.url}
                 alt="User Profile"
-                className="w-8 h-8 rounded-full"
-              />
+                className="w-1o h-10 rounded-full cursor-pointer "
+              /></a>
             </li>
           )}
           <li className={`isDarkMode ? 'dark' : 'light' flex items-center`}>

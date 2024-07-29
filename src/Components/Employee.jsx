@@ -90,7 +90,7 @@ const Employee = () => {
             Show Fewer
           </h4>
         )}
-        <button onClick={() => navigate(`/register`)} className="bg-[#114a6e] rounded flex justify-center text-white p-2 mt-5">
+        <button onClick={() => navigate(`/signin`)} className="bg-[#114a6e] rounded flex justify-center text-white p-2 mt-5">
           Register as employee
         </button>
       </div>

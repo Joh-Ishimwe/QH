@@ -15,6 +15,19 @@ const Regform = () => {
   const [dateOfBirth,setDateOfBirth] = useState('');
   const [experience, setExperience] = useState('')
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
+  const clearForm =() => {setExperience('')
+    setFirstName('')
+    setLastName('')
+    setAddress('')
+    setJob('')
+    setEmail('')
+    setPhoneNumber('')
+    setId('')
+    setMin_salary('')
+    setProfilePicture('')
+    setDateOfBirth('')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,6 +56,9 @@ const Regform = () => {
       );
 
       console.log(response);
+      setSuccess(true);
+      clearForm();
+      
     } catch (error) {
       console.error(error);
       setError("An error occurred during register. Please try again.");
@@ -253,6 +269,7 @@ const Regform = () => {
         >
           Register
         </button>
+        {success && <div className=" p-4 rounded-full bg-green-200 text-green-700 font-bold px-8 animate-animated animate_ease-in "> employee registered succesfully!!</div>}
       </form>
     </div>
   );
