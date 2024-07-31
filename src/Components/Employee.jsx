@@ -7,6 +7,7 @@ const Employee = () => {
   const navigate = useNavigate();
   const [selectedJob, setSelectedJob] = useState('');
   const [showFew, setShowFew] = useState(true);
+  const [displayCount, setDisplayCount] = useState();
 
   const handleFetch = async () => {
     try {
@@ -25,6 +26,10 @@ const Employee = () => {
     handleFetch();
   }, []);
 
+  useEffect(() => {
+    setDisplayCount(showFew ? 4 : data.length);
+  }, [showFew, data.length]);
+
   const handleSelectedJob = (event) => {
     setSelectedJob(event.target.value);
   };
@@ -34,9 +39,6 @@ const Employee = () => {
   const filteredData = selectedJob
     ? data.filter((employee) => employee.JobName === selectedJob)
     : data;
-
-
-  const initialDisplayCount = showFew ? 4 : filteredData.length;
 
   return (
     <div className="bg-white py-8 mt-10">
@@ -51,7 +53,7 @@ const Employee = () => {
           </select>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredData.slice(0, initialDisplayCount).map((employee, index) => (
+          {filteredData.slice(0, displayCount).map((employee, index) => (
             <div
               key={index}
               className="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm"
@@ -80,15 +82,18 @@ const Employee = () => {
             </div>
           ))}
         </div>
-        {showFew && (
-          <h4 className="text-[#114a6e] rounded flex justify-center  text-2xl p-2 mt-5 cursor-pointer" onClick={() => setShowFew(false)}>
-            Show More
-          </h4>
-        )}
-        {!showFew && (
-          <h4 className="text-[#114a6e] rounded flex justify-center text-2xl p-2 mt-5 cursor-pointer" onClick={() => setShowFew(true)}>
-            Show Fewer
-          </h4>
+        {filteredData.length > 4 && (
+          <>
+            {showFew ? (
+              <h4 className="text-[#114a6e] rounded flex justify-center text-2xl p-2 mt-5 cursor-pointer" onClick={() => setShowFew(false)}>
+                Show More
+              </h4>
+            ) : (
+              <h4 className="text-[#114a6e] rounded flex justify-center text-2xl p-2 mt-5 cursor-pointer" onClick={() => setShowFew(true)}>
+                Show Fewer
+              </h4>
+            )}
+          </>
         )}
         <button onClick={() => navigate(`/signin`)} className="bg-[#114a6e] rounded flex justify-center text-white p-2 mt-5">
           Register as employee

@@ -1,21 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const Booking = () => {
   const location = useLocation();
-  const { data } = location.state;
-  console.log(data);
+  const { data } = location.state || {};
+
+  useEffect(() => {
+    if (!data) {
+      console.error('No data found in location state');
+    } else {
+      console.log('Data:', data);
+    }
+  }, [data]);
 
   const [formData, setFormData] = useState({
-    name: '',
+    Name: '',
     address: '',
-    email: '',
+    Email: '',
     phoneNumber: '',
     numberOfPeopleAtHome: '',
-    idNumber: '',   
+    idCard: '',
     additionalInfo: ''
   });
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const clearForm = () => {
+    setFormData({
+      Name: '',
+      address: '',
+      Email: '',
+      phoneNumber: '',
+      numberOfPeopleAtHome: '',
+      idCard: '',
+      additionalInfo: ''
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,23 +46,20 @@ const Booking = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.idCard.length !== 16) {
+      setError('ID card number must be 16 characters long.');
+      return;
+    }
+    console.log('Submitting form with data:', formData);
     try {
-      const response = await axios.post('https://qh-backend.onrender.com/api/v1/Booking/bookings', {
-        ...formData,
-        id: data.id
-      });
-      console.log(response.data);
-      setFormData({
-        name: '',
-        address: '',
-        email: '',
-        phoneNumber: '',
-        numberOfPeopleAtHome: '',
-        idNumber: '',
-        additionalInfo: '',
-      });
+      const response = await axios.post(`https://qh-backend.onrender.com/api/v1/Booking/bookings/${data || 'defaultId'}`, formData);
+      console.log('Server response:', response.data);
+      clearForm();
+      setSuccess(true);
+      setError('');
     } catch (error) {
-      console.error('There was an error submitting the form!', error);
+      console.error('There was an error submitting the form!', error.response || error);
+      setError('There was an error submitting the form.');
     }
   };
 
@@ -49,12 +68,12 @@ const Booking = () => {
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto mt-8 p-6 bg-white rounded shadow-lg">
         <p className="text-center text-yellow-500 text-lg font-medium">Employer Book Form</p>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name:</label>
+          <label htmlFor="Name" className="block text-sm font-medium text-gray-700">Name:</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="Name"
+            name="Name"
+            value={formData.Name}
             onChange={handleChange}
             className="bg-gray-100 w-full rounded-lg border-gray-200 p-4 text-black-400 pe-12 text-sm shadow-sm"
             required
@@ -75,12 +94,12 @@ const Booking = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email:</label>
+          <label htmlFor="Email" className="block text-sm font-medium text-gray-700">Email:</label>
           <input
-            type="text"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="email"
+            id="Email"
+            name="Email"
+            value={formData.Email}
             onChange={handleChange}
             className="bg-gray-100 w-full rounded-lg border-gray-200 p-4 text-black-400 pe-12 text-sm shadow-sm"
             required
@@ -114,12 +133,12 @@ const Booking = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="idNumber" className="block text-sm font-medium text-gray-700">ID Number:</label>
+          <label htmlFor="idCard" className="block text-sm font-medium text-gray-700">ID Number:</label>
           <input
             type="text"
-            id="idNumber"
-            name="idNumber"
-            value={formData.idNumber}
+            id="idCard"
+            name="idCard"
+            value={formData.idCard}
             onChange={handleChange}
             className="bg-gray-100 w-full rounded-lg border-gray-200 p-4 text-black-400 pe-12 text-sm shadow-sm"
             required
@@ -143,6 +162,8 @@ const Booking = () => {
         >
           Submit
         </button>
+        {success && <div className="p-4 mt-4 rounded bg-green-200 text-green-700 font-bold">Booking successfully!!</div>}
+        {error && <div className="p-4 mt-4 rounded bg-red-200 text-red-700 font-bold">{error}</div>}
       </form>
     </div>
   );
