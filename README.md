@@ -1,6 +1,6 @@
 # QuickHelp
 
-QuickHelp is designed to transform the hiring process in the home services sector, bridging the gap between skilled workers and households in need of their services. The app provides a user-friendly platform for households to easily find and hire skilled workers.
+QuickHelp is designed to transform the hiring process in the home services sector, bridging the gap between skilled workers and households in need of their services. The app provides a user-friendly platform for households to find and hire skilled workers easily.
 
 ## Table of Contents
 
